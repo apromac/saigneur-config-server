@@ -1,0 +1,14 @@
+version: '3.7'
+services:
+  docker-postgres:
+    image: postgis/postgis:14-3.2
+    container_name: msaigneur-database
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres_data:/var/lib/postgresql/data        # volume de la base de données
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: adminpostgres
+volumes:
+  postgres_data: {}
