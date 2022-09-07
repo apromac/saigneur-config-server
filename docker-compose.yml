@@ -2,9 +2,9 @@ version: "3.9"
 services:
   docker-config-server:
     image: saigneur-config-server
+    container_name: msaigneur-config-server
     build:
       dockerfile: Dockerfile
-    container_name: msaigneur-config-server
     ports:
       - "9101:9101"
 
