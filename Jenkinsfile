@@ -12,9 +12,24 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Compilation du code source ...'
-                sh '/usr/local/maven386/bin/mvn -version'
-                sh '/usr/local/maven386/bin/mvn clean install -DskipTests'
+//                 sh '/usr/local/maven386/bin/mvn -version'
+//                 sh '/usr/local/maven386/bin/mvn -B -DskipTests clean package'
+                sh './mvnw clean package -DskipTests'
+            }
+            post {
+                success {
+                    // we only worry about archiving the jar file if the build steps are successful
+                    archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
+                }
             }
         }
+
+//         stage("Build and start test image") {
+//             steps {
+//                 sh "docker-composer build"
+//                 sh "docker-compose up -d"
+//                 waitUntilServicesReady
+//             }
+//         }
     }
 }
