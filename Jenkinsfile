@@ -12,8 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Compilation du code source ...'
-//                 sh '/usr/local/maven386/bin/mvn -version'
-//                 sh '/usr/local/maven386/bin/mvn -B -DskipTests clean package'
+                sh '/usr/local/maven386/bin/mvn -version'
                 sh '/usr/local/maven386/bin/mvn clean package -DskipTests'
             }
             post {
@@ -24,12 +23,13 @@ pipeline {
             }
         }
 
-//         stage("Build and start test image") {
-//             steps {
-//                 sh "docker-composer build"
-//                 sh "docker-compose up -d"
-//                 waitUntilServicesReady
-//             }
-//         }
+        stage("Build and start test image") {
+            steps {
+                //sh "docker-compose down"
+                sh "docker-composer build"
+                sh "docker-compose up -d"
+                waitUntilServicesReady
+            }
+        }
     }
 }
