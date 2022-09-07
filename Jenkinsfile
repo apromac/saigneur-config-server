@@ -14,7 +14,7 @@ pipeline {
                 echo 'Compilation du code source ...'
 //                 sh '/usr/local/maven386/bin/mvn -version'
 //                 sh '/usr/local/maven386/bin/mvn -B -DskipTests clean package'
-                sh './mvnw clean package -DskipTests'
+                sh '/usr/local/maven386/bin/mvnw clean package -DskipTests'
             }
             post {
                 success {
