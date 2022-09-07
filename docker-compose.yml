@@ -1,6 +1,7 @@
 version: "3.9"
 services:
   docker-config-server:
+    image: saigneur-config-server
     build:
       dockerfile: Dockerfile
     container_name: msaigneur-config-server
