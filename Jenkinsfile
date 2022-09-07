@@ -23,12 +23,10 @@ pipeline {
             }
         }
 
-        stage("Build and start test image") {
+        stage("Build and start image") {
             steps {
-                //sh "docker-compose down"
                 sh "docker compose build"
                 sh "docker compose up -d"
-                //waitUntilServicesReady
             }
         }
     }
