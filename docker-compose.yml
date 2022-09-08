@@ -37,7 +37,6 @@ services:
 
 networks:
   saigneur-network:
-    drive: bridge
     external: false
 
 
