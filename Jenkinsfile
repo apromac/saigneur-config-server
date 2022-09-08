@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven "maven386"
+        maven "Maven386"
         jdk "openJDK11"
     }
 
