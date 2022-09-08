@@ -7,8 +7,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "9101:9101"
-    networks:
-      - saigneur-network
 
   docker-saigneur-postgres:
     image: postgis/postgis:14-3.2
@@ -18,13 +16,8 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: adminpostgres
-    network_mode: bridge
-    networks:
-      - saigneur-network
 
-networks:
-  saigneur-network:
-    external: true
+
 
 
 #  docker-saigneur-pgadmin:
