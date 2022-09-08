@@ -2,21 +2,12 @@ pipeline {
     agent any
     tools {
         maven "Maven386"
-        //jdk "openJDK11"
     }
 
     stages {
-        stage('Initialize') {
-            steps {
-                echo "M2_HOME = /usr/local/maven386"
-            }
-        }
-
         stage('Build') {
             steps {
-                dir("/var/lib/jenkins/workspace/saigneur-config-server-pipeline") {
-                    sh 'mvn -B -DskipTests clean package'
-                }
+                sh 'mvn -B -DskipTests clean package'
             }
             post {
                 success {
