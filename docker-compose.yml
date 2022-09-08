@@ -7,8 +7,31 @@ services:
       dockerfile: Dockerfile
     ports:
       - "9101:9101"
+    networks:
+      - saigneur-network
 
+  docker-saigneur-postgres:
+    image: postgis/postgis:14-3.2
+    container_name: msaigneur-database
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: adminpostgres
+    networks:
+      - saigneur-network
 
+  docker-saigneur-pgadmin:
+    image: dpage/pgadmin4
+      container_name: msaigneur-pgadmin
+      ports:
+        - "8081:80"
+      environment:
+        PGADMIN_DEFAULT_PASSWORD: adminpostgres
+      networks:
+        - saigneur-network
+networks:
+  saigneur-network:
+    external: true
 
 
 #version: "3.9"
