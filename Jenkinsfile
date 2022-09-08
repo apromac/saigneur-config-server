@@ -23,10 +23,10 @@ pipeline {
                 echo 'Compilation du docker-compose et construction de l image docker à partir du Dockerfile ...'
                 sh 'docker compose build'
 
-                echo 'Lancement des containers contenuent dans le docker-compose ...'
+                echo 'Lancement des images contenuent dans le docker-compose (containers)...'
                 sh 'docker compose up -d'
 
-                echo 'Affichage des processus actifs ...'
+                echo 'Affichage des containers actifs ...'
                 sh 'docker ps'
             }
         }
