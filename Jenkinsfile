@@ -7,6 +7,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                echo 'Compilation du code source ...'
                 sh 'mvn -B -DskipTests clean package'
             }
             post {
@@ -19,8 +20,13 @@ pipeline {
 
         stage("Build and start container") {
             steps {
+                echo 'Compilation du docker-compose et construction de l''image docker à partir du Dockerfile ...'
                 sh 'docker compose build'
+
+                echo 'Lancement des containers contenuent dans le docker-compose ...'
                 sh 'docker compose up -d'
+
+                echo 'Affichage des processus actifs ...'
                 sh 'docker ps'
             }
         }
