@@ -24,21 +24,21 @@ services:
 
   docker-saigneur-pgadmin:
     image: dpage/pgadmin4
-      container_name: msaigneur-pgadmin
-      ports:
-        - "8081:80"
-      depends_on:
-        - docker-saigneur-postgres
-      environment:
-        PGADMIN_DEFAULT_PASSWORD: adminpostgres
-      network_mode: bridge
-      networks:
-        - saigneur-network
+    container_name: msaigneur-pgadmin
+    ports:
+      - "8081:80"
+    depends_on:
+      - docker-saigneur-postgres
+    environment:
+      PGADMIN_DEFAULT_PASSWORD: adminpostgres
+    network_mode: bridge
+    networks:
+      - saigneur-network
 
 networks:
   saigneur-network:
     drive: bridge
-#    external: true
+    external: false
 
 
 #version: "3.9"
