@@ -24,7 +24,7 @@ services:
 
 networks:
   saigneur-network:
-    external: false
+    external: true
 
 
 #  docker-saigneur-pgadmin:
