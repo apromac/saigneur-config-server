@@ -8,8 +8,20 @@ pipeline {
     stages {
         stage('Initialize') {
             steps {
-                echo "PATH = ${MAVEN_HOME}/bin:${PATH}"
-                echo "MAVEN_HOME = /usr/local/maven386"
+                echo "M2_HOME = /usr/local/maven386"
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir("/var/lib/jenkins/workspace/saigneur-config-server-pipeline")
+                sh 'mvn -B -DskipTests clean package'
+            }
+            post {
+                success {
+                    // we only worry about archiving the jar file if the build steps are successful
+                    archiveArtifacts(artifacts: '**/target/*.jar', allowEmptyArchive: true)
+                }
             }
         }
     }
