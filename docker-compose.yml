@@ -16,6 +16,7 @@ services:
     ports:
       - "5432:5432"
     environment:
+      POSTGRES_USER: postgres
       POSTGRES_PASSWORD: adminpostgres
     network_mode: bridge
     networks:
@@ -26,15 +27,17 @@ services:
       container_name: msaigneur-pgadmin
       ports:
         - "8081:80"
-      links:
+      depends_on:
         - docker-saigneur-postgres
       environment:
         PGADMIN_DEFAULT_PASSWORD: adminpostgres
       network_mode: bridge
       networks:
         - saigneur-network
-#networks:
-#  saigneur-network:
+
+networks:
+  saigneur-network:
+    drive: bridge
 #    external: true
 
 
