@@ -9,7 +9,7 @@ services:
       - "9101:9101"
     restart: always
     networks:
-      - saigneur-network
+      - bridge
 
   docker-saigneur-postgres:
     image: postgis/postgis:14-3.2
@@ -21,8 +21,8 @@ services:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: adminpostgres
     networks:
-      - saigneur-network
+      - bridge
 
 networks:
-  saigneur-network:
+  bridge:
     external: true
