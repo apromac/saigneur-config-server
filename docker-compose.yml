@@ -24,4 +24,5 @@ services:
       - saigneur-network
 
 networks:
-  saigneur-network: {}
+  saigneur-network:
+    external: true
