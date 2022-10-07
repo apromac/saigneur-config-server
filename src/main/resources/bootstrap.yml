@@ -11,7 +11,7 @@ spring:
   application:
     name: saigneur-config-server
   compatibility-verifier:
-    enabled: true
+    enabled: false
   cloud:
     config:
       server:
