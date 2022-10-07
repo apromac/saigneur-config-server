@@ -1,0 +1,20 @@
+# ==================================================
+# SERVEUR
+# ==================================================
+server:
+  port: 9101
+
+# ==================================================
+# SPRING
+# ==================================================
+spring:
+  application:
+    name: saigneur-config-server
+  compatibility-verifier:
+    enabled: true
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/apromac/msaigneur-config-repo.git
+          default-label: master
