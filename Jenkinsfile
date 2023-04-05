@@ -1,7 +1,7 @@
 pipeline {
     agent any
     tools {
-        maven "Maven386"
+        maven "Maven391"
     }
     environment {
         DOCKER_IMAGE_NAME = "saigneur-config-server"
