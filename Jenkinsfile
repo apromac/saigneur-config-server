@@ -6,6 +6,7 @@ pipeline {
     environment {
         DOCKER_IMAGE_NAME = "saigneur-config-server"
         CONTAINER_NAME = "msaigneur-config-server"
+        BUILD_TAG = "v1.0.${BUILD_NUMBER}"
         USERNAME = 'apromac'
         PASSWORD = '@pr0m@c123'
     }
